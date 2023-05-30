@@ -9,6 +9,7 @@ import MealsPage, { dataLoaderMeals } from "./pages/MealsPage";
 import MealDetailsPage, { loaderMealDetails, mealDeleteAction } from "./pages/MealDetailsPage";
 import MealEditPage from "./pages/MealEditPage";
 import MealNewPage from "./pages/MealNewPage";
+import { editOrDeleteMeal } from "./components/admin/meals/MealForm";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,14 +54,14 @@ const router = createBrowserRouter([
           {
             path: "edit",
             element: <MealEditPage />,
-            // loader
+            action: editOrDeleteMeal,
           }
         ]
       },
       {
-        path: "new",
+        path: "/admin/meals/new",
         element: <MealNewPage />,
-        // action
+        action: editOrDeleteMeal,
       }
     ],
   },

@@ -1,23 +1,22 @@
 import { useLoaderData } from "react-router-dom";
 import Home from "../components/admin/Home";
+import { useEffect } from "react";
 
 const AdminPage = () => {
   const adminData = useLoaderData();
-  const { categories, contacts, orders, reservations } = adminData;
+  const { meals, contacts, orders, reservations } = adminData;
+  console.log("adminData", adminData);
 
-  let mealsNumber = 0;
-  for (let key in categories) {
-    mealsNumber += categories[key].length
-  }
-  const contactNumber = contacts.length
-  const orderNumber = orders.length
-  const reservationNumber = reservations.length
+  const mealsNumber = meals.length
+  const contactsNumber = contacts.length
+  const ordersNumber = orders.length
+  const reservationsNumber = reservations.length
 
   const adminNumbers = {
     mealsNumber,
-    contactNumber,
-    orderNumber,
-    reservationNumber
+    contactsNumber,
+    ordersNumber,
+    reservationsNumber
   }
 
   return (

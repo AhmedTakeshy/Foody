@@ -21,7 +21,7 @@ const ScrollToTop = () => {
 
   return (
     showBtn && (
-      <div className="fixed z-0 flex items-center justify-center right-4 bottom-4">
+      <div className="fixed z-10 flex items-center justify-center right-4 bottom-4">
         <button
           onClick={scrollTo}
           className="flex  h-[70px]  w-[70px] items-center justify-center rounded-full hover:bg-primary bg-secondary text-white"

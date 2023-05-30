@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 
 const Product = ({ img, price, title, id }) => {
   const dispatch = useDispatch();
-  const newPrice = `₺${price?.toFixed(2)}`;
+  console.log("img", img);
+  console.log("price", price);
+  const newPrice = `₺${parseInt(price)?.toFixed(2)}`;
   const addHandler = () => {
     dispatch(
       cartActions.addItem({
@@ -17,7 +19,7 @@ const Product = ({ img, price, title, id }) => {
   return (
     <div className=" w-[300px] m-5 border border-[#ccc] p-5 text-center rounded-md hover:scale-105 transition duration-500 hover:shadow-md">
       <img
-        src={`http://localhost:3000/${img}`}
+        src={`${img.includes("https") ? img : "http://localhost:3000/" + img} `}
         alt={title}
         className="w-full h-[200px] object-cover mb-5 rounded-md"
       />

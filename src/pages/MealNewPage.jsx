@@ -1,8 +1,9 @@
 import React from 'react'
+import MealForm from '../components/admin/meals/MealForm'
 
 const MealNewPage = () => {
     return (
-        <div>MealNewPage</div>
+        <MealForm method="post" />
     )
 }
 

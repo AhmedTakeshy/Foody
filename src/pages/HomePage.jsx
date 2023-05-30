@@ -44,7 +44,7 @@ const HomePage = () => {
 export default HomePage;
 
 export const dataLoaderUser = async () => {
-  const response = await fetch("http://localhost:3000/categories");
+  const response = await fetch("http://localhost:3000/meals");
   const data = await response.json();
   return data;
 };

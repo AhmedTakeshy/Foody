@@ -1,7 +1,9 @@
 import { Suspense } from "react";
-import { defer, json, redirect, useRouteLoaderData } from "react-router-dom";
+import { defer, json, redirect, useRouteLoaderData, Await } from "react-router-dom";
 import MealCard from "../components/admin/meals/MealCard";
 import Meals from "../components/admin/meals/Meals";
+import PropagateLoader from 'react-spinners/PropagateLoader';
+import { toast } from "react-toastify";
 const MealDetailsPage = () => {
     const { meal, meals } = useRouteLoaderData("meal-details");
     return (
@@ -45,8 +47,9 @@ export default MealDetailsPage
 
 
 const loadMeal = async (id) => {
-    const response = await fetch("http://localhost:3000/categories/" + id);
+    const response = await fetch("http://localhost:3000/meals/" + id);
     if (!response.ok) {
+        toast.error("Could not fetch data for selected meal");
         throw json(
             { message: "Could not fetch data for selected meal" },
             { status: 500 }
@@ -58,9 +61,10 @@ const loadMeal = async (id) => {
 }
 
 export const loadMeals = async () => {
-    const response = await fetch("http://localhost:3000/categories");
+    const response = await fetch("http://localhost:3000/meals");
 
     if (!response.ok) {
+        toast.error("Could not fetch meals.");
         throw json(
             { message: "Could not fetch meals." },
             {
@@ -74,18 +78,20 @@ export const loadMeals = async () => {
 }
 
 export const loaderMealDetails = async (params) => {
+    const { mealId } = params.params;
     return defer({
-        meal: await loadMeal(params.id),
+        meal: await loadMeal(mealId),
         meals: loadMeals(),
     });
 }
 
 export const mealDeleteAction = async ({ params, request }) => {
-    const id = params.mealId;
-    const response = await fetch("http://localhost:3000/categories/" + id, {
+    const { mealId } = params;
+    const response = await fetch("http://localhost:3000/meals/" + mealId, {
         method: request.method,
     });
     if (!response.ok) {
+        toast.error("Could not delete meal.");
         throw json(
             { message: "Could not delete meal." },
             {
@@ -94,6 +100,7 @@ export const mealDeleteAction = async ({ params, request }) => {
         );
     }
     else {
+        toast.success("Meal deleted successfully!");
         return redirect("/admin/meals");
     }
 }

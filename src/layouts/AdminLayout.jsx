@@ -3,6 +3,10 @@ import { Outlet } from "react-router-dom";
 import Aside from "../components/admin/Aside";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import ScrollToTop from "../components/ScrollToTop";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AdminLayout = () => {
     const [dark, setDark] = useState(true);
     const [open, setOpen] = useState(false);
@@ -88,6 +92,8 @@ const AdminLayout = () => {
                     <Aside asideHandler={asideHandler} modeHandler={modeHandler} />
                 </>
             )}
+            <ScrollToTop />
+            <ToastContainer />
             <main className="min-h-screen px-2 pt-20 pb-4 ml-12 duration-500 ease-in-out transform content md:px-5 ">
 
                 <Outlet />

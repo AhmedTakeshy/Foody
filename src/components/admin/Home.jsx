@@ -6,12 +6,36 @@ import { MdOutlineTableBar } from "react-icons/md";
 import { RiTakeawayLine } from "react-icons/ri";
 import { GiMeal } from "react-icons/gi";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const Home = ({ adminNumbers }) => {
+    const { mealsNumber, ordersNumber, reservationsNumber, contactsNumber } = adminNumbers;
+    const { isAuthenticated, loginWithRedirect, isLoading } = useAuth0();
 
-    const { user, isAuthenticated, loginWithRedirect, isLoading } =
-        useAuth0();
+    // const [prevOrdersNumber, setPrevOrdersNumber] = useState(ordersNumber);
+    // const [prevReservationsNumber, setPrevReservationsNumber] = useState(reservationsNumber);
+    // const [prevContactsNumber, setPrevContactsNumber] = useState(contactsNumber);
+    // useEffect(() => {
+    //     if (ordersNumber !== prevOrdersNumber) {
+    //         toast.success("New order received");
+    //         setPrevOrdersNumber(ordersNumber);
+    //     }
+
+    //     if (reservationsNumber !== prevReservationsNumber) {
+    //         toast.success("New reservation received");
+    //         setPrevReservationsNumber(reservationsNumber);
+    //     }
+
+    //     if (contactsNumber !== prevContactsNumber) {
+    //         toast.success("New contact received");
+    //         setPrevContactsNumber(contactsNumber);
+    //     }
+    // }, [ordersNumber, reservationsNumber, contactsNumber]);
+
+
+
+
 
     if (isLoading) {
         return (
@@ -42,7 +66,7 @@ const Home = ({ adminNumbers }) => {
                     />
                 }
                 title="Meals"
-                number={adminNumbers.mealsNumber}
+                number={mealsNumber}
                 link="meals"
             />
             <MainDetails
@@ -53,7 +77,7 @@ const Home = ({ adminNumbers }) => {
                     />
                 }
                 title="Orders"
-                number={adminNumbers.orderNumber}
+                number={ordersNumber}
             />
             <MainDetails
                 icon={
@@ -63,7 +87,7 @@ const Home = ({ adminNumbers }) => {
                     />
                 }
                 title="Reservations"
-                number={adminNumbers.reservationNumber}
+                number={reservationsNumber}
             />
             <MainDetails
                 icon={
@@ -73,7 +97,7 @@ const Home = ({ adminNumbers }) => {
                     />
                 }
                 title="Contacts"
-                number={adminNumbers.contactNumber}
+                number={contactsNumber}
             />
         </div>
     ) : (
@@ -96,25 +120,3 @@ const Home = ({ adminNumbers }) => {
 };
 
 export default Home;
-
-{/* <div
-                className="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800"
-                role="alert"
-            >
-                <span className="font-medium">Info alert!</span> Change a few things
-                up and try submitting again.
-            </div>
-            <div
-                className="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                role="alert"
-            >
-                <span className="font-medium">Danger alert!</span> Change a few things
-                up and try submitting again.
-            </div>
-            <div
-                className="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                role="alert"
-            >
-                <span className="font-medium">Success alert!</span> Change a few
-                things up and try submitting again.
-            </div> */}
