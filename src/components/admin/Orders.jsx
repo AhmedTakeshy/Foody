@@ -14,7 +14,7 @@ const Orders = ({ orders }) => {
     const randomNumbers = orders.map(() => BigInt(generateRandomNumber()));
 
     return (
-        <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 mt-8 gap-y-4'>
+        <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 mt-12 gap-y-4'>
             {orders.map((order, i) => {
                 const orderTotal = order.orderItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
                 const randomBigNumber = randomNumbers[i].toString().slice(0, 17);

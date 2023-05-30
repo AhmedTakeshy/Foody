@@ -1,12 +1,14 @@
 import { useOutletContext, useLocation } from "react-router-dom"
 import Orders from "../components/admin/Orders";
 import { useEffect, useState } from "react";
+import Contacts from "../components/admin/Contacts";
+import Reservations from "../components/admin/Reservations";
 
 const OtherDetails = () => {
     const adminData = useOutletContext();
     const { contacts, orders, reservations } = adminData;
     const { pathname } = useLocation();
-    console.log("pathname", pathname);
+
     const [activePath, setActivePath] = useState({
         orders: false,
         reservations: false,
@@ -42,8 +44,8 @@ const OtherDetails = () => {
     return (
         <div>
             {activePath.orders && !activePath.reservations && !activePath.contacts && <Orders orders={orders} />}
-            {activePath.reservations && !activePath.orders && !activePath.contacts && <h1>reservation</h1>}
-            {activePath.contacts && !activePath.orders && !activePath.reservations && <h1>contacts</h1>}
+            {activePath.reservations && !activePath.orders && !activePath.contacts && <Reservations reservations={reservations} />}
+            {activePath.contacts && !activePath.orders && !activePath.reservations && <Contacts contacts={contacts} />}
         </div>
     )
 }
