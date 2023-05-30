@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 
 const Product = ({ img, price, title, id }) => {
   const dispatch = useDispatch();
-  console.log("img", img);
-  console.log("price", price);
   const newPrice = `₺${parseInt(price)?.toFixed(2)}`;
   const addHandler = () => {
     dispatch(
