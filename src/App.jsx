@@ -62,7 +62,12 @@ const router = createBrowserRouter([
         path: "/admin/meals/new",
         element: <MealNewPage />,
         action: editOrDeleteMeal,
-      }
+      },
+      {
+        path: "orders",
+      },
+      {},
+      {},
     ],
   },
 ]);

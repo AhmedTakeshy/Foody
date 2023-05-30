@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import MainDetails from "./MainDetails";
 import { HiOutlineMail } from "react-icons/hi";
@@ -6,8 +5,6 @@ import { MdOutlineTableBar } from "react-icons/md";
 import { RiTakeawayLine } from "react-icons/ri";
 import { GiMeal } from "react-icons/gi";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
 
 const Home = ({ adminNumbers }) => {
     const { mealsNumber, ordersNumber, reservationsNumber, contactsNumber } = adminNumbers;

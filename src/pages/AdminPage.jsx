@@ -1,11 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Home from "../components/admin/Home";
-import { useEffect } from "react";
 
 const AdminPage = () => {
   const adminData = useLoaderData();
   const { meals, contacts, orders, reservations } = adminData;
-  console.log("adminData", adminData);
+
 
   const mealsNumber = meals.length
   const contactsNumber = contacts.length
