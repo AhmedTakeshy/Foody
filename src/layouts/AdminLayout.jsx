@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Aside from "../components/admin/Aside";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -7,10 +7,11 @@ import ScrollToTop from "../components/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const AdminLayout = () => {
     const [dark, setDark] = useState(true);
     const [open, setOpen] = useState(false);
-
+    const data = useLoaderData();
     const { isAuthenticated, user } = useAuth0();
 
     const asideHandler = () => {
@@ -95,11 +96,17 @@ const AdminLayout = () => {
             <ScrollToTop />
             <ToastContainer />
             <main className="min-h-screen px-2 pt-20 pb-4 ml-12 duration-500 ease-in-out transform content md:px-5 ">
-
-                <Outlet />
+                <Outlet context={data} />
             </main>
         </div>
     );
 };
 
 export default AdminLayout;
+
+
+export const dataLoaderAdmin = async () => {
+    const res = await fetch("http://localhost:3000/db");
+    const data = await res.json();
+    return data;
+};

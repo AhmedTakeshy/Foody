@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import Home from "../components/admin/Home";
 
 const AdminPage = () => {
-  const adminData = useLoaderData();
+  const adminData = useOutletContext();
   const { meals, contacts, orders, reservations } = adminData;
 
 
@@ -27,8 +27,3 @@ const AdminPage = () => {
 
 export default AdminPage;
 
-export const dataLoaderAdmin = async () => {
-  const res = await fetch("http://localhost:3000/db");
-  const data = await res.json();
-  return data;
-};

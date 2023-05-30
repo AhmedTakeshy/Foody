@@ -75,6 +75,7 @@ const Home = ({ adminNumbers }) => {
                 }
                 title="Orders"
                 number={ordersNumber}
+                link="orders"
             />
             <MainDetails
                 icon={
@@ -85,6 +86,7 @@ const Home = ({ adminNumbers }) => {
                 }
                 title="Reservations"
                 number={reservationsNumber}
+                link="reservations"
             />
             <MainDetails
                 icon={
@@ -95,6 +97,7 @@ const Home = ({ adminNumbers }) => {
                 }
                 title="Contacts"
                 number={contactsNumber}
+                link="contacts"
             />
         </div>
     ) : (

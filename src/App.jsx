@@ -2,14 +2,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import AdminPage, { dataLoaderAdmin } from "./pages/AdminPage";
+import AdminPage from "./pages/AdminPage";
 import { dataLoaderUser } from "./pages/HomePage";
-import AdminLayout from "./layouts/AdminLayout";
+import AdminLayout, { dataLoaderAdmin } from "./layouts/AdminLayout";
 import MealsPage, { dataLoaderMeals } from "./pages/MealsPage";
 import MealDetailsPage, { loaderMealDetails, mealDeleteAction } from "./pages/MealDetailsPage";
 import MealEditPage from "./pages/MealEditPage";
 import MealNewPage from "./pages/MealNewPage";
 import { editOrDeleteMeal } from "./components/admin/meals/MealForm";
+import OtherDetails from "./pages/OtherDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminLayout />,
+    loader: dataLoaderAdmin,
     children: [
       {
         path: "/admin",
         element: <AdminPage />,
-        loader: dataLoaderAdmin,
       },
       {
         path: "/admin/meals",
@@ -65,9 +66,16 @@ const router = createBrowserRouter([
       },
       {
         path: "orders",
+        element: <OtherDetails />,
       },
-      {},
-      {},
+      {
+        path: "reservations",
+        element: <OtherDetails />,
+      },
+      {
+        path: "contacts",
+        element: <OtherDetails />,
+      },
     ],
   },
 ]);
