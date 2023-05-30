@@ -10,7 +10,10 @@ import MealDetailsPage, { loaderMealDetails, mealDeleteAction } from "./pages/Me
 import MealEditPage from "./pages/MealEditPage";
 import MealNewPage from "./pages/MealNewPage";
 import { editOrDeleteMeal } from "./components/admin/meals/MealForm";
-import OtherDetails from "./pages/OtherDetails";
+import Orders from "./pages/OrdersPage";
+import ReservationsPage from "./pages/ReservationsPage";
+import ContactsPage from "./pages/ContactsPage";
+import OrdersPage from "./pages/OrdersPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -66,15 +69,15 @@ const router = createBrowserRouter([
       },
       {
         path: "orders",
-        element: <OtherDetails />,
+        element: <OrdersPage />,
       },
       {
         path: "reservations",
-        element: <OtherDetails />,
+        element: <ReservationsPage />,
       },
       {
         path: "contacts",
-        element: <OtherDetails />,
+        element: <ContactsPage />,
       },
     ],
   },

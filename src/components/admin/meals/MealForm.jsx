@@ -51,14 +51,13 @@ const MealForm = ({ method, meal }) => {
             </p>
             <p className="flex flex-col mb-4">
                 <label className="w-full block text-black dark:text-white font-semibold" htmlFor="type">Type</label>
-                <input
-                    className="w-full block py-1 px-2 border text-black border-[#ccc] rounded bg-transparent dark:border focus:outline-none dark:text-white dark:border-b-[#ccc] "
-                    id="type"
-                    type="text"
-                    name="type"
-                    required
-                    defaultValue={mealData ? mealData.type : ""}
-                />
+                <select className="w-full block py-1 px-2 border text-black border-[#ccc] rounded bg-transparent dark:border focus:outline-none dark:text-white dark:border-b-[#ccc] " name="type" id="type" defaultValue={mealData ? mealData.type : ""} required>
+                    <option value="" disabled hidden>Choose a type</option>
+                    <option value="menu">Menu</option>
+                    <option value="main">Main menu</option>
+                    <option value="desserts">Desserts</option>
+                    <option value="drinks">Drinks</option>
+                </select>
             </p>
             <div className=" mt-4 flex gap-4 justify-end items-center">
                 <button className="px-8 py-3 text-xl text-white bg-red-700 border-none rounded-full hover:bg-red-900"

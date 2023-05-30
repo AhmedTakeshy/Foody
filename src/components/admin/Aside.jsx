@@ -1,8 +1,12 @@
 import { AiOutlineLogout, AiOutlineHome } from "react-icons/ai";
-import { FiAlignJustify } from "react-icons/fi";
+import { RiTakeawayLine } from "react-icons/ri";
+import { MdTableBar } from "react-icons/md";
+import { HiOutlineMail } from "react-icons/hi";
+import { GiMeal } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 const Aside = ({ modeHandler, asideHandler }) => {
+
     const { logout } = useAuth0();
     return (
         <aside className="w-60 -translate-x-48 fixed transition transform ease-in-out duration-1000 z-50 flex h-screen bg-[#1E293B] ">
@@ -95,10 +99,30 @@ const Aside = ({ modeHandler, asideHandler }) => {
                         <div>Home</div>
                     </div>
                 </Link>
-                {/* <div className="cursor-pointer hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
-                    <FiAlignJustify className="w-4 h-4" />
-                    <div>Table</div>
-                </div> */}
+                <Link to="/admin/meals">
+                    <div className="hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                        <GiMeal className="w-4 h-4" />
+                        <div>Meals</div>
+                    </div>
+                </Link>
+                <Link to="/admin/orders" >
+                    <div className="hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                        <RiTakeawayLine className="w-4 h-4" />
+                        <div>Orders</div>
+                    </div>
+                </Link>
+                <Link to="/admin/reservations" >
+                    <div className="hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                        <MdTableBar className="w-4 h-4" />
+                        <div>Reservations</div>
+                    </div>
+                </Link>
+                <Link to="/admin/contacts" >
+                    <div className="hover:ml-4 w-full text-white hover:text-purple-500 dark:hover:text-blue-500 bg-[#1E293B] p-2 pl-8 rounded-full transform ease-in-out duration-300 flex flex-row items-center space-x-3">
+                        <HiOutlineMail className="w-4 h-4" />
+                        <div>Contacts</div>
+                    </div>
+                </Link>
                 <div onClick={() =>
                     logout({
                         logoutParams: { returnTo: window.location.origin + "/admin" },
@@ -114,9 +138,26 @@ const Aside = ({ modeHandler, asideHandler }) => {
                         <AiOutlineHome className="w-4 h-4" />
                     </div>
                 </Link>
-                {/* <div className="cursor-pointer hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
-                    <FiAlignJustify className="w-4 h-4" />
-                </div> */}
+                <Link to="/admin/meals">
+                    <div className="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
+                        <GiMeal className="w-4 h-4" />
+                    </div>
+                </Link>
+                <Link to="/admin/orders">
+                    <div className="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
+                        <RiTakeawayLine className="w-4 h-4" />
+                    </div>
+                </Link>
+                <Link to="/admin/reservations">
+                    <div className="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
+                        <MdTableBar className="w-4 h-4" />
+                    </div>
+                </Link>
+                <Link to="/admin/contacts">
+                    <div className="hover:ml-4 justify-end pr-5 text-white hover:text-purple-500 dark:hover:text-blue-500 w-full bg-[#1E293B] p-3 rounded-full transform ease-in-out duration-300 flex">
+                        <HiOutlineMail className="w-4 h-4" />
+                    </div>
+                </Link>
                 <div onClick={() =>
                     logout({
                         logoutParams: { returnTo: window.location.origin + "/admin" },
