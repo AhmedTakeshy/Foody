@@ -79,7 +79,7 @@ const Cart = () => {
   const cartModalContent = (
     <>
       {CartItems}
-      {!isSelected && (
+      {!isSelected && hasItems && (
         <CartSuggestions />
       )}
       <div className="flex items-center justify-between my-4 text-2xl font-bold">
