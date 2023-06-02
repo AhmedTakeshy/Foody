@@ -8,6 +8,7 @@ import { uiActions } from "../../store/ui-slice";
 import Modal from "../UI/Modal";
 import TableForm from "./TableForm";
 import OrderTime from "./OrderTime";
+import CartSuggestions from "./CartSuggestions";
 const Cart = () => {
   const dispatch = useDispatch();
 
@@ -78,6 +79,9 @@ const Cart = () => {
   const cartModalContent = (
     <>
       {CartItems}
+      {!isSelected && (
+        <CartSuggestions />
+      )}
       <div className="flex items-center justify-between my-4 text-2xl font-bold">
         <span>Total Amount</span>
         <span>₺{cartAmountFixed}</span>
