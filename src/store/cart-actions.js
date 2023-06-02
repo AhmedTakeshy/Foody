@@ -38,7 +38,6 @@ export const sendCartData = (cart) => {
           "Content-Type": "application/json",
         },
       });
-      console.log("res", res);
       if (!res.ok) {
         throw new Error("Something went wrong!");
       }
