@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
@@ -23,8 +23,13 @@ const Cart = () => {
   const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const cartAmountFixed = cartAmount.toFixed(2);
+  const cartAmountFixed = parseInt(cartAmount).toFixed(2);
   const hasItems = cartQuantity > 0;
+
+  useEffect(() => {
+    setIsSelected(false);
+  }, [cartItems, cartQuantity, cartAmount]);
+
 
   const CartItems = (
     <ul className="overflow-auto max-h-[20rem]">

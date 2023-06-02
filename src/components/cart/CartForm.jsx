@@ -55,7 +55,7 @@ const CartForm = (props) => {
   };
 
   return (
-    <form className="my-4 overflow-auto" onSubmit={formSubmitHandler}>
+    <form className="my-4" onSubmit={formSubmitHandler}>
       <div className={`mb-2 ${!validity.name && "text-[#ca3e51]"}`}>
         <label className={`block font-bold mb-1`} htmlFor="name">
           Name
@@ -66,9 +66,8 @@ const CartForm = (props) => {
           type="text"
           value={data.name}
           onChange={changeHandler}
-          className={`border border-gray-300 rounded px-2 py-1 w-80 ${
-            !validity.name && "border-[#aa0b20] bg-[#ffeff1]"
-          }`}
+          className={`border border-gray-300 rounded px-2 py-1 w-80 ${!validity.name && "border-[#aa0b20] bg-[#ffeff1]"
+            }`}
         />
         {!validity.name && <p>Must not be empty</p>}
       </div>
@@ -82,9 +81,8 @@ const CartForm = (props) => {
           type="text"
           value={data.address}
           onChange={changeHandler}
-          className={`border border-gray-300 rounded px-2 py-1 w-80 ${
-            !validity.address && "border-[#aa0b20] bg-[#ffeff1]"
-          }`}
+          className={`border border-gray-300 rounded px-2 py-1 w-80 ${!validity.address && "border-[#aa0b20] bg-[#ffeff1]"
+            }`}
         />
         {!validity.address && <p>Must not be empty</p>}
       </div>
@@ -99,9 +97,8 @@ const CartForm = (props) => {
           value={data.phone}
           onChange={changeHandler}
           placeholder="(05x)xxx-xx-xx"
-          className={`border border-gray-300 rounded px-2 py-1 w-80 ${
-            !validity.phone && "border-[#aa0b20] bg-[#ffeff1]"
-          }`}
+          className={`border border-gray-300 rounded px-2 py-1 w-80 ${!validity.phone && "border-[#aa0b20] bg-[#ffeff1]"
+            }`}
         />
         {!validity.phone && <p>Must be a valid phone (11)</p>}
       </div>

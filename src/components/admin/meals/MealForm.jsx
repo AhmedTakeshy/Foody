@@ -82,7 +82,7 @@ export const editOrDeleteMeal = async ({ params, request }) => {
     const mealData = {
         title: data.get("title"),
         img: data.get("image"),
-        price: data.get("price"),
+        price: parseInt(data.get("price")),
         type: data.get("type")
     }
     let url = "http://localhost:3000/meals/"

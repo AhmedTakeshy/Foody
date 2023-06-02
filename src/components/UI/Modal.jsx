@@ -15,7 +15,7 @@ const BackDrop = ({ toggle }) => {
 const ModalOverlay = ({ children }) => {
   return (
     <div
-      className={`fixed top-[9vh] left-[50%] max-w-[40rem] w-[50%] bg-white p-4 rounded-lg shadow-lg z-30 animate-slide_down`}
+      className={`fixed top-4 left-[50%] max-w-[40rem] w-[50%] bg-white p-4 rounded-lg shadow-lg z-30 animate-slide_down`}
     >
       {children}
     </div>

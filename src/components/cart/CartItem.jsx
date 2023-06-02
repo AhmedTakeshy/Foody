@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 
 const CartItem = (props) => {
-  const price = `₺${props.price.toFixed(2)}`;
+  const price = `₺${parseInt(props.price).toFixed(2)}`;
   const dispatch = useDispatch();
 
   const addHandler = () => {

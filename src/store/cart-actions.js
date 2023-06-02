@@ -15,8 +15,8 @@ export const fetchCartData = () => {
       dispatch(
         cartActions.replaceCart({
           items: cartData.items || [],
-          totalQuantity: cartData.totalQuantity,
-          totalAmount: cartData.totalAmount,
+          totalQuantity: cartData.totalQuantity || 0,
+          totalAmount: cartData.totalAmount || 0,
         })
       );
     } catch (error) {
