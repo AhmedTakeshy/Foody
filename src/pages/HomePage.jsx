@@ -15,9 +15,7 @@ const HomePage = () => {
   const categoryData = (filter) => {
     return (
       <>
-        {filter === "all" || filter === "menu" ? (
-          <Category data={fetchedData?.filter(data => data.type === "menu")} title="Günün Menüsü" />
-        ) : null}
+        <Category data={fetchedData?.filter(data => data.type === "menu")} title="Günün Menüsü" />
         {filter === "all" || filter === "main" ? (
           <Category data={fetchedData?.filter(data => data.type === "main")} title="Ana Yemekler" />
         ) : null}

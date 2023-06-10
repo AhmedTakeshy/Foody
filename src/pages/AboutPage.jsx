@@ -7,7 +7,7 @@ import { useState } from 'react';
 const AboutPage = () => {
   const [showPopup, setShowPopup] = useState(true);
   return (
-    <div className="flex justify-between w-full min-h-screen p-10 pt-12 bg-fixed bg-center bg-cover bg-banner">
+    <div className="flex flex-col justify-between w-full min-h-screen p-10 pt-12 bg-fixed bg-center bg-cover lg:flex-row bg-banner">
       <div className="flex flex-col items-start text-left text-white ">
         <h1 className="mb-5 text-5xl font-bold text-transparent bg-gradient-to-r from-white to-black bg-clip-text">
           Hakkımızda

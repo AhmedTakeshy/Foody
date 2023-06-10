@@ -5,39 +5,39 @@ const FilteredBtns = (props) => {
     props.onFilter(event.target.dataset.category);
   };
   return (
-    <div className="flex justify-center items-center w-full text-white gap-8 p-4 my-8 mx-auto">
+    <div className="flex items-center justify-center w-full gap-8 p-4 mx-auto my-8 text-white">
       <button
         data-category="all"
         onClick={filterHandler}
-        className="bg-secondary border-none py-2 px-8 rounded-2xl font-bold hover:bg-primary"
+        className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
         Menü
       </button>
-      <button
+      {/* <button
         data-category="menu"
         onClick={filterHandler}
-        className="bg-secondary border-none py-2 px-8 rounded-2xl font-bold hover:bg-primary"
+        className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
         Günün Menüsü
-      </button>
+      </button> */}
       <button
         data-category="main"
         onClick={filterHandler}
-        className="bg-secondary border-none py-2 px-8 rounded-2xl font-bold hover:bg-primary"
+        className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
         Ana Yemekler
       </button>
       <button
         data-category="desserts"
         onClick={filterHandler}
-        className="bg-secondary border-none py-2 px-8 rounded-2xl font-bold hover:bg-primary"
+        className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
         Tatlılar
       </button>
       <button
         data-category="drinks"
         onClick={filterHandler}
-        className="bg-secondary border-none py-2 px-8 rounded-2xl font-bold hover:bg-primary"
+        className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
         İçecekler
       </button>
