@@ -37,7 +37,7 @@ const CartSuggestions = () => {
     return (
         <div className="flex flex-col items-start justify-between overflow-scroll">
             <h2 className="my-2 text-xl font-bold text-gray-700">Öneriler</h2>
-            <div className='grid w-full gap-2 overflow-scroll  justify-content-between md:grid-cols-2'>
+            <div className='grid w-full gap-2 overflow-scroll justify-content-between md:grid-cols-2'>
                 {suggestedData.map((item) => {
                     const addHandler = () => {
                         dispatch(
