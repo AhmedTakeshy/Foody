@@ -7,25 +7,25 @@ import { cartActions } from '../../store/cart-slice';
 
 const suggestedData = [
     {
-        id: 1,
+        id: ayran,
         title: 'Ayran',
         price: 4,
         image: ayran
     },
     {
-        id: 2,
+        id: cola,
         title: 'Cola',
         price: 10,
         image: cola
     },
     {
-        id: 3,
+        id: soda,
         title: 'Soda',
         price: 3,
         image: soda
     },
     {
-        id: 4,
+        id: water,
         title: 'Water',
         image: water,
         price: 5,
@@ -36,8 +36,8 @@ const CartSuggestions = () => {
     const dispatch = useDispatch();
     return (
         <div className="flex flex-col items-start justify-between overflow-scroll">
-            <h2 className="text-xl font-bold my-2 text-gray-700">Suggested Drinks</h2>
-            <div className=' justify-content-between overflow-scroll grid gap-2 md:grid-cols-2 w-full'>
+            <h2 className="my-2 text-xl font-bold text-gray-700">Suggested Drinks</h2>
+            <div className='grid w-full gap-2 overflow-scroll  justify-content-between md:grid-cols-2'>
                 {suggestedData.map((item) => {
                     const addHandler = () => {
                         dispatch(
@@ -54,24 +54,24 @@ const CartSuggestions = () => {
                     };
                     return (
                         <div key={item.id} className='flex bg-gray-200 rounded-md'>
-                            <img src={item.image} alt={item.title} className='h-24 w-24 object-cover border border-gray-200 rounded-md rounded-r-none' />
+                            <img src={item.image} alt={item.title} className='object-cover w-24 h-24 border border-gray-200 rounded-md rounded-r-none' />
                             <div className='flex flex-col items-center justify-center w-full'>
-                                <h3 className='text-gray-800 font-semibold'>{item.title}</h3>
-                                <div className="flex w-fill flex-col md:flex-row">
+                                <h3 className='font-semibold text-gray-800'>{item.title}</h3>
+                                <div className="flex flex-col w-fill md:flex-row">
                                     <button
                                         onClick={removeHandler}
-                                        className="font-bold text-base text-primary border border-primary w-8 text-center rounded bg-transparent cursor-pointer m-1 hover:text-white hover:bg-secondary"
+                                        className="w-8 m-1 text-base font-bold text-center bg-transparent border rounded cursor-pointer text-primary border-primary hover:text-white hover:bg-secondary"
                                     >
                                         −
                                     </button>
                                     <button
                                         onClick={addHandler}
-                                        className="font-bold text-base text-primary border border-primary w-8 text-center rounded bg-transparent cursor-pointer m-1 hover:text-white hover:bg-secondary"
+                                        className="w-8 m-1 text-base font-bold text-center bg-transparent border rounded cursor-pointer text-primary border-primary hover:text-white hover:bg-secondary"
                                     >
                                         +
                                     </button>
                                 </div>
-                                <span className='text-gray-800 inline-block'>₺ {item.price.toFixed(2)}</span>
+                                <span className='inline-block text-gray-800'>₺ {item.price.toFixed(2)}</span>
                             </div>
                         </div>
                     )
