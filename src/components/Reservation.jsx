@@ -31,6 +31,7 @@ const Reservation = () => {
     numberOfPeople: "",
     date: "",
     time: "",
+    note: ""
   });
 
   const handleChange = (e) => {
@@ -158,6 +159,14 @@ const Reservation = () => {
               max={closingTime}
             />
           </div>
+          <textarea
+            name="note"
+            type="text"
+            className="p-2 w-72 rounded-md border border-[#ccc]"
+            placeholder="Notunuz:"
+            onChange={handleChange}
+            value={data.note}
+          />
           <button className="p-2 transition duration-300 bg-transparent border rounded-md text-secondary border-secondary hover:bg-secondary hover:border-secondary hover:text-white">
             Rezervasyon yap
           </button>

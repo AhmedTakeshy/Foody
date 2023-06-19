@@ -12,6 +12,8 @@ const Category = ({ title, data }) => {
             price={item.price}
             img={item.img}
             title={item.title}
+            ingredients={item.ingredients}
+            calories={item.calories}
           />
         ))}
       </div>

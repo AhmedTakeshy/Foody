@@ -43,6 +43,7 @@ const Reservations = ({ reservations }) => {
                                 <h1 className="mb-4 text-4xl font-bold leading-none tracking-tight dark:text-white text-gray-800"><b>Reservation for: </b>{reservation.name}</h1>
                                 <p className="leading-normal"><b>Table No.</b> {reservation.tableNumber}</p>
                                 <p className="leading-normal"><b>Attended People:</b> {reservation.numberOfPeople}</p>
+                                <p className='leading-normal mt-4'><b>Note: </b>{reservation.note}</p>
                             </div>
                         </div>
                     </div>
