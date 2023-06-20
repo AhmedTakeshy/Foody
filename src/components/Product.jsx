@@ -2,11 +2,11 @@ import { cartActions } from "../store/cart-slice";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 
-const Product = ({ img, price, title, id, calories, ingredients }) => {
+const Product = ({ img, price, title, id, calories, ingredients, type }) => {
   const dispatch = useDispatch();
   const newPrice = `₺${parseInt(price)?.toFixed(2)}`;
   const [showIngredients, setShowIngredients] = useState(false)
-
+  console.log(type);
   const addHandler = () => {
     dispatch(
       cartActions.addItem({
@@ -30,29 +30,29 @@ const Product = ({ img, price, title, id, calories, ingredients }) => {
         className="w-full h-[200px] object-cover mb-5 rounded-md"
       />
       <h2 className="text-[1.4rem] mb-2 font-bold">{title}</h2>
-      <p className="mb-3 text-primary text-xl">{newPrice || `₺${price}`}</p>
-      <div className="flex justify-center items-center flex-col gap-2">
+      <p className="mb-3 text-xl text-primary">{newPrice || `₺${price}`}</p>
+      <div className="flex flex-col items-center justify-center gap-2">
         <button
           onClick={addHandler}
-          className="px-8 py-3 bg-primary text-white text-xl rounded-full border-none hover:bg-secondary"
+          className="px-8 py-3 text-xl text-white border-none rounded-full bg-primary hover:bg-secondary"
         >
           Sepete Ekle
         </button>
-        <button
+        {type !== "drinks" && <button
           onClick={handleIngredients}
-          className="px-8 py-3 bg-primary text-white text-xl rounded-full border-none hover:bg-secondary"
+          className="px-8 py-3 text-xl text-white border-none rounded-full bg-primary hover:bg-secondary"
         >
-          Ingredients
-        </button>
+          İçindekiler
+        </button>}
       </div>
       {showIngredients &&
-        <div className="flex flex-col justify-center items-center mt-4">
-          <ul className=" list-disc flex flex-col">
+        <div className="flex flex-col items-center justify-center mt-4">
+          <ul className="flex flex-col list-disc ">
             {ingredients?.map((ingredient, index) => (
               <li key={index} className="text-xl">{ingredient}</li>
             ))}
           </ul>
-          <p className="text-2xl mt-4"><b>Kalori: </b>~{calories}kcal</p>
+          <p className="mt-4 text-2xl"><b>Kalori: </b>~{calories}kcal</p>
         </div>
       }
     </div>
