@@ -7,6 +7,13 @@ const Nav = () => {
   const dispatch = useDispatch();
   const cartQuantity = useSelector((state) => state.cart.totalQuantity);
 
+  const scrollTo = () => {
+    window.scrollTo({
+      top: 850,
+      behavior: "smooth",
+    });
+  };
+
   const toggleReservationHandler = () => {
     dispatch(uiActions.toggleReservation());
   };
@@ -33,7 +40,7 @@ const Nav = () => {
               Anasayfa
             </NavLink>
           </li>
-          <li className="hover:text-secondary">Menüler</li>
+          <li className="hover:text-secondary" onClick={scrollTo}>Menüler</li>
           <li
             className="hover:text-secondary"
             onClick={toggleReservationHandler}
