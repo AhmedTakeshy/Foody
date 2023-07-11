@@ -27,18 +27,16 @@ const TableForm = (props) => {
   return (
     <form className="flex flex-col w-full" onSubmit={formSubmitHandler}>
       <div
-        className={`flex items-center justify-start gap-2 mb-2 font-semibold ${
-          !validity && "text-[#ca3e51]"
-        }`}
+        className={`flex items-center justify-start gap-2 mb-2 font-semibold ${!validity && "text-[#ca3e51]"
+          }`}
       >
-        <label htmlFor="tableNumber">Table No.</label>
+        <label htmlFor="tableNumber">Masa No.</label>
         <input
           type="number"
           id="tableNumber"
           pattern="[0-9]"
-          className={`px-2 w-24 rounded border border-gray-300 focus:outline-none ${
-            !validity && "!border-[#aa0b20] bg-[#ffeff1]"
-          }`}
+          className={`px-2 w-24 rounded border border-gray-300 focus:outline-none ${!validity && "!border-[#aa0b20] bg-[#ffeff1]"
+            }`}
           value={data}
           onChange={changeHandler}
         />

@@ -24,7 +24,7 @@ const Product = ({ img, price, title, id, calories, ingredients, type }) => {
   }
 
   return (
-    <div className=" w-[300px] m-5 border border-[#ccc] p-5 h-[40rem] text-center rounded-md hover:scale-105 transition duration-500 hover:shadow-md">
+    <div className={` overflow-auto w-[300px] m-5 border border-[#ccc] p-5 ${type !== "drinks" && "h-[40rem]"} text-center rounded-md hover:scale-105 transition duration-500 hover:shadow-md`}>
       <img
         src={`${img.includes("https") ? img : "http://localhost:3000/" + img} `}
         alt={title}
@@ -40,12 +40,13 @@ const Product = ({ img, price, title, id, calories, ingredients, type }) => {
           >
             Sepete Ekle
           </button>
-          <MdInfoOutline className="cursor-pointer peer" size={20} />
-          <p className="relative hidden mt-4 text-xl peer-hover:inline-block">
-            <span className="absolute w-32 h-20 py-2 text-white rounded-md -left-5 bottom-4 bg-slate-800">
-              Kalori: ~{calories}kcal
-            </span>
-          </p>
+          {type !== "drinks" && <>
+            <MdInfoOutline className="cursor-pointer peer" size={20} />
+            <p className="relative hidden mt-4 text-xl peer-hover:inline-block">
+              <span className="absolute w-32 h-20 py-2 text-white rounded-md -left-5 bottom-4 bg-slate-800">
+                Kalori: ~{calories}kcal
+              </span>
+            </p></>}
 
         </div>
         {type !== "drinks" && <div className="flex flex-col items-center justify-center mt-4">

@@ -14,7 +14,7 @@ const AboutPage = () => {
           latitude: 38.7,
           zoom: 14
         }}
-        style={{ width: 600, height: 400, borderRadius: "1rem" }}
+        style={{ width: 650, height: 500, borderRadius: "1rem" }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
       >
