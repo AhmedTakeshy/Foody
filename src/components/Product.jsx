@@ -43,7 +43,7 @@ const Product = ({ img, price, title, id, calories, ingredients, type }) => {
           {type !== "drinks" && <>
             <MdInfoOutline className="cursor-pointer peer" size={20} />
             <p className="relative hidden mt-4 text-xl peer-hover:inline-block">
-              <span className="absolute w-32 h-20 py-2 text-white rounded-md -left-5 bottom-4 bg-slate-800">
+              <span className="absolute w-32 h-20 py-2 text-white rounded-md right-2 bottom-4 bg-slate-800">
                 Kalori: ~{calories}kcal
               </span>
             </p></>}
