@@ -10,8 +10,8 @@ const MealsPage = () => {
 
     return (
         <>
-            <Link to="/admin/meals/new" className="px-4 w-fit ml-auto py-3 text-xl text-white bg-blue-700 border-none rounded flex justify-between items-baseline hover:bg-blue-900 hover:shadow-md">
-                <SiOneplus className='text-white mr-2' size={20} />
+            <Link to="/admin/meals/new" className="flex items-baseline justify-between px-4 py-3 ml-auto text-xl text-white bg-blue-700 border-none rounded w-fit hover:bg-blue-900 hover:shadow-md">
+                <SiOneplus className='mr-2 text-white' size={20} />
                 Create meal
             </Link>
             <Suspense fallback={<PropagateLoader
@@ -38,7 +38,7 @@ export default MealsPage;
 
 const loadMeals = async () => {
     try {
-        const res = await fetch("http://localhost:3000/meals");
+        const res = await fetch("https://redux-97fb6-default-rtdb.firebaseio.com/meals.json");
         const data = await res.json();
         return data;
     } catch (error) {

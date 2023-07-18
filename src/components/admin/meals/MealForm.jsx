@@ -1,5 +1,6 @@
 import { useNavigate, json, useNavigation, Form, redirect } from "react-router-dom"
 import { toast } from "react-toastify";
+import { v4 as uuidv4 } from "uuid";
 
 const MealForm = ({ method, meal }) => {
     const { meal: mealData } = meal ? meal : {};
@@ -16,7 +17,7 @@ const MealForm = ({ method, meal }) => {
     return (
         <Form method={method} className="max-w-[40rem] my-8 mx-auto border-2 border-[#ccc] rounded-md p-4">
             <p className="flex flex-col mb-4">
-                <label className="w-full block font-semibold text-black dark:text-white" htmlFor="title">Title</label>
+                <label className="block w-full font-semibold text-black dark:text-white" htmlFor="title">Title</label>
                 <input
                     className="w-full block py-1 px-2 border text-black border-[#ccc] rounded bg-transparent dark:border focus:outline-none dark:text-white dark:border-b-[#ccc] "
                     id="title"
@@ -27,7 +28,7 @@ const MealForm = ({ method, meal }) => {
                 />
             </p>
             <p className="flex flex-col mb-4">
-                <label className="w-full block text-black dark:text-white font-semibold" htmlFor="image">Image</label>
+                <label className="block w-full font-semibold text-black dark:text-white" htmlFor="image">Image</label>
                 <input
                     className="w-full block py-1 px-2 border text-black border-[#ccc] rounded bg-transparent dark:border focus:outline-none dark:text-white dark:border-b-[#ccc] "
                     id="image"
@@ -38,7 +39,7 @@ const MealForm = ({ method, meal }) => {
                 />
             </p>
             <p className="flex flex-col mb-4">
-                <label className="w-full block text-black dark:text-white font-semibold" htmlFor="price">Price</label>
+                <label className="block w-full font-semibold text-black dark:text-white" htmlFor="price">Price</label>
                 <input
                     className="w-full block py-1 px-2 border text-black border-[#ccc] rounded bg-transparent dark:border focus:outline-none dark:text-white dark:border-[#ccc] "
                     id="price"
@@ -50,7 +51,7 @@ const MealForm = ({ method, meal }) => {
                 />
             </p>
             <p className="flex flex-col mb-4">
-                <label className="w-full block text-black dark:text-white font-semibold" htmlFor="type">Type</label>
+                <label className="block w-full font-semibold text-black dark:text-white" htmlFor="type">Type</label>
                 <select className="w-full block py-1 px-2 border text-black border-[#ccc] rounded bg-transparent dark:border focus:outline-none dark:text-white dark:border-b-[#ccc] " name="type" id="type" defaultValue={mealData ? mealData.type : ""} required>
                     <option value="" disabled hidden>Choose a type</option>
                     <option value="menu">Menu</option>
@@ -59,7 +60,7 @@ const MealForm = ({ method, meal }) => {
                     <option value="drinks">Drinks</option>
                 </select>
             </p>
-            <div className=" mt-4 flex gap-4 justify-end items-center">
+            <div className="flex items-center justify-end gap-4 mt-4 ">
                 <button className="px-8 py-3 text-xl text-white bg-red-700 border-none rounded-full hover:bg-red-900"
                     onClick={cancelHandler} disabled={isSubmitting}>
                     Cancel
@@ -79,16 +80,17 @@ export default MealForm
 export const editOrDeleteMeal = async ({ params, request }) => {
     const method = request.method;
     const data = await request.formData();
+    let id = uuidv4();
     const mealData = {
         title: data.get("title"),
         img: data.get("image"),
         price: parseInt(data.get("price")),
         type: data.get("type")
     }
-    let url = "http://localhost:3000/meals/"
+    let url = `https://redux-97fb6-default-rtdb.firebaseio.com/meals/${id}.json/`
     if (method === "PATCH") {
-        const id = params.mealId
-        url = "http://localhost:3000/meals/" + id;
+        id = params.mealId
+        url = `https://redux-97fb6-default-rtdb.firebaseio.com/meals/${id}.json`;
     }
     try {
         await fetch(url, {
@@ -96,7 +98,7 @@ export const editOrDeleteMeal = async ({ params, request }) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(mealData)
+            body: JSON.stringify({ ...mealData, id })
         })
         toast.success("Meals updated successfully");
         return redirect("/admin/meals")

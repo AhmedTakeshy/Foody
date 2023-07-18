@@ -23,7 +23,7 @@ const MealCard = ({ meal }) => {
         <div className='flex justify-center'>
             <div className=" w-[300px] m-5 border border-[#ccc] p-5 text-center rounded-md  hover:shadow-md">
                 <img
-                    src={`${meal.img.includes("https") ? meal.img : "http://localhost:3000/" + meal.img}`}
+                    src={meal.img}
                     alt={meal.title}
                     className="w-full h-[200px] object-cover mb-5 rounded-md"
                 />

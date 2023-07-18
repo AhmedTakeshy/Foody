@@ -19,7 +19,6 @@ const TableForm = (props) => {
     if (!tableValidation) {
       return;
     }
-    console.log(data);
     props.onConfirm(`Table No. ${data}`);
     setData("");
   };

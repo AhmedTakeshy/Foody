@@ -7,6 +7,7 @@ import Ads from "../components/home/Ads";
 
 const HomePage = () => {
   const fetchedData = useLoaderData();
+  const fetchedDataArr = Object.values(fetchedData);
   const [filter, setFilter] = useState("all");
   const filteredData = (data) => {
     setFilter(data);
@@ -15,15 +16,15 @@ const HomePage = () => {
   const categoryData = (filter) => {
     return (
       <>
-        <Category data={fetchedData?.filter(data => data.type === "menu")} title="Günün Menüsü" />
+        <Category data={fetchedDataArr?.filter(data => data.type === "menu")} title="Günün Menüsü" />
         {filter === "all" || filter === "main" ? (
-          <Category data={fetchedData?.filter(data => data.type === "main")} title="Ana Yemekler" />
+          <Category data={fetchedDataArr?.filter(data => data.type === "main")} title="Ana Yemekler" />
         ) : null}
         {filter === "all" || filter === "desserts" ? (
-          <Category data={fetchedData?.filter(data => data.type === "desserts")} title="Tatlılar" />
+          <Category data={fetchedDataArr?.filter(data => data.type === "desserts")} title="Tatlılar" />
         ) : null}
         {filter === "all" || filter === "drinks" ? (
-          <Category data={fetchedData?.filter(data => data.type === "drinks")} title="İçecekler" />
+          <Category data={fetchedDataArr?.filter(data => data.type === "drinks")} title="İçecekler" />
         ) : null}
       </>
     );
@@ -42,7 +43,7 @@ const HomePage = () => {
 export default HomePage;
 
 export const dataLoaderUser = async () => {
-  const response = await fetch("http://localhost:3000/meals");
+  const response = await fetch("https://redux-97fb6-default-rtdb.firebaseio.com/meals.json");
   const data = await response.json();
   return data;
 };

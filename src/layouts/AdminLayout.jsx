@@ -106,7 +106,7 @@ export default AdminLayout;
 
 
 export const dataLoaderAdmin = async () => {
-    const res = await fetch("http://localhost:3000/db");
+    const res = await fetch("https://redux-97fb6-default-rtdb.firebaseio.com/.json");
     const data = await res.json();
     return data;
 };

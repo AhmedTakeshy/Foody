@@ -3,7 +3,7 @@ import MealForm from '../components/admin/meals/MealForm'
 
 const MealNewPage = () => {
     return (
-        <MealForm method="post" />
+        <MealForm method="PUT" />
     )
 }
 

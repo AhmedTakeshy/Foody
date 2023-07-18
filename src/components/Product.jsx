@@ -6,8 +6,6 @@ import { MdInfoOutline } from "react-icons/md";
 const Product = ({ img, price, title, id, calories, ingredients, type }) => {
   const dispatch = useDispatch();
   const newPrice = `₺${parseInt(price)?.toFixed(2)}`;
-  const [showIngredients, setShowIngredients] = useState(false)
-  console.log(type);
   const addHandler = () => {
     dispatch(
       cartActions.addItem({
@@ -19,9 +17,6 @@ const Product = ({ img, price, title, id, calories, ingredients, type }) => {
     );
   };
 
-  const handleIngredients = () => {
-    setShowIngredients(!showIngredients)
-  }
 
   return (
     <div className={` overflow-auto w-[300px] m-5 border border-[#ccc] p-5 ${type !== "drinks" && "h-[40rem]"} text-center rounded-md hover:scale-105 transition duration-500 hover:shadow-md`}>

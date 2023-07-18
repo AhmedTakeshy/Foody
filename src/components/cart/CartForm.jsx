@@ -45,7 +45,6 @@ const CartForm = (props) => {
       return;
     }
 
-    console.log(data);
     props.onConfirm(data);
     setData({
       name: "",
@@ -72,7 +71,7 @@ const CartForm = (props) => {
         {!validity.name && <p>Must not be empty</p>}
       </div>
       <div className={`mb-2 ${!validity.address && "text-[#ca3e51]"}`}>
-        <label className="block font-bold mb-1" htmlFor="address">
+        <label className="block mb-1 font-bold" htmlFor="address">
           Adres
         </label>
         <input
@@ -87,7 +86,7 @@ const CartForm = (props) => {
         {!validity.address && <p>Must not be empty</p>}
       </div>
       <div className={`mb-2 ${!validity.phone && "text-[#ca3e51]"}`}>
-        <label className="block font-bold mb-1" htmlFor="phone">
+        <label className="block mb-1 font-bold" htmlFor="phone">
           Telefon no
         </label>
         <input
@@ -106,13 +105,13 @@ const CartForm = (props) => {
         <button
           type="button"
           onClick={props.onCancel}
-          className="text-secondary cursor-pointer py-2 px-8 hover:bg-orange-100 border-none rounded-full"
+          className="px-8 py-2 border-none rounded-full cursor-pointer text-secondary hover:bg-orange-100"
         >
           İptal
         </button>
         <button
           type="submit"
-          className="border border-secondary bg-secondary text-white rounded-full py-2 px-8 hover:bg-primary"
+          className="px-8 py-2 text-white border rounded-full border-secondary bg-secondary hover:bg-primary"
         >
           Onayla
         </button>

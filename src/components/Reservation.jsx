@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../store/ui-slice";
 import { toast } from "react-toastify";
 import { json } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 const Reservation = () => {
   const dispatch = useDispatch();
@@ -55,9 +56,10 @@ const Reservation = () => {
     }
 
     const checkReservation = async () => {
-      const res = await fetch("http://localhost:3000/reservations");
+      const res = await fetch("https://redux-97fb6-default-rtdb.firebaseio.com/reservations.json");
       const fetchedData = await res.json();
-      const hasConflict = fetchedData.some(
+      const fetchedDataArray = Object.values(fetchedData);
+      const hasConflict = fetchedDataArray.some(
         (reservation) =>
           reservation.date === data.date && reservation.time === data.time
       );
@@ -65,13 +67,13 @@ const Reservation = () => {
         toast.error("Bu saatte rezervasyon alınamamaktadır.");
         return;
       }
-
-      const response = await fetch("http://localhost:3000/reservations", {
-        method: "POST",
+      const id = uuidv4();
+      const response = await fetch(`https://redux-97fb6-default-rtdb.firebaseio.com/reservations/${id}.json`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, id }),
       });
       toast.success("Rezervasyonunuz alınmıştır. Teşekkür ederiz.");
       if (!response.ok) {

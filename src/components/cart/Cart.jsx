@@ -9,6 +9,7 @@ import Modal from "../UI/Modal";
 import TableForm from "./TableForm";
 import OrderTime from "./OrderTime";
 import CartSuggestions from "./CartSuggestions";
+import { v4 as uuidv4 } from "uuid";
 const Cart = () => {
   const dispatch = useDispatch();
 
@@ -49,9 +50,11 @@ const Cart = () => {
   const SubmitUserData = async (userData) => {
     setIsSending(true);
     setIsSubmitted(false);
-    const res = await fetch("http://localhost:3000/orders", {
-      method: "POST",
+    const id = uuidv4();
+    const res = await fetch(`https://redux-97fb6-default-rtdb.firebaseio.com/orders/${id}.json`, {
+      method: "PUT",
       body: JSON.stringify({
+        id,
         user: userData,
         orderItems: cartItems,
       }),

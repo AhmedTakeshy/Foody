@@ -47,7 +47,7 @@ export default MealDetailsPage
 
 
 const loadMeal = async (id) => {
-    const response = await fetch("http://localhost:3000/meals/" + id);
+    const response = await fetch(`https://redux-97fb6-default-rtdb.firebaseio.com/meals/${id}.json`);
     if (!response.ok) {
         toast.error("Could not fetch data for selected meal");
         throw json(
@@ -61,7 +61,7 @@ const loadMeal = async (id) => {
 }
 
 export const loadMeals = async () => {
-    const response = await fetch("http://localhost:3000/meals");
+    const response = await fetch("https://redux-97fb6-default-rtdb.firebaseio.com/meals.json");
 
     if (!response.ok) {
         toast.error("Could not fetch meals.");
@@ -87,7 +87,7 @@ export const loaderMealDetails = async (params) => {
 
 export const mealDeleteAction = async ({ params, request }) => {
     const { mealId } = params;
-    const response = await fetch("http://localhost:3000/meals/" + mealId, {
+    const response = await fetch(`https://redux-97fb6-default-rtdb.firebaseio.com/meals/${mealId}.json`, {
         method: request.method,
     });
     if (!response.ok) {

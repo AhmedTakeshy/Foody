@@ -1,6 +1,7 @@
 import { IoRestaurantOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const Waiter = () => {
   const [waiter, setWaiter] = useState([]);
@@ -8,12 +9,14 @@ const Waiter = () => {
     const res = parseInt(prompt("Masa numarası giriniz:"));
     if (!isNaN(res)) {
       // send data to server
+      const id = uuidv4();
       const waiterData = {
+        id,
         tableNumber: res,
         dateTime: new Date().toLocaleString(),
       };
-      const response = await fetch("http://localhost:3000/waiter", {
-        method: "POST",
+      const response = await fetch(`https://redux-97fb6-default-rtdb.firebaseio.com/waiter/${id}.json`, {
+        method: "PUT",
         body: JSON.stringify(waiterData),
         headers: {
           "Content-Type": "application/json",

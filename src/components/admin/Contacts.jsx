@@ -1,11 +1,10 @@
 import React from 'react'
 
 const Contacts = ({ contacts }) => {
-
-
+    const contactsArray = Object.values(contacts);
     return (
         <div className='grid items-center gap-4 mt-12 lg:grid-cols-3 md:grid-cols-2'>
-            {contacts.map(contact => (
+            {contactsArray.map(contact => (
                 <div key={contact.id} className="max-w-md p-px rounded-3xl bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
                     <div className="rounded-[calc(1.5rem-1px)] p-10 bg-white dark:bg-gray-900">
                         <p className="text-gray-700 dark:text-gray-300"><b>Message:</b> {contact.message}</p>

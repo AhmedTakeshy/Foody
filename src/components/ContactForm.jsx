@@ -5,6 +5,7 @@ import { json } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../store/ui-slice";
 import { toast } from "react-toastify";
+import { v4 as uuidv4 } from 'uuid';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -36,9 +37,10 @@ const ContactForm = () => {
     const formattedDate = new Date().toLocaleString();
 
     const sendRequest = async () => {
-      const res = await fetch("http://localhost:3000/contacts", {
-        method: "POST",
-        body: JSON.stringify({ ...formData, dateTime: formattedDate }),
+      const id = uuidv4();
+      const res = await fetch(`https://redux-97fb6-default-rtdb.firebaseio.com/contacts/${id}.json`, {
+        method: "PUT",
+        body: JSON.stringify({ ...formData, dateTime: formattedDate, id }),
         headers: {
           "Content-Type": "application/json",
         },

@@ -3,7 +3,9 @@ import { cartActions } from "./cart-slice";
 export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchRequest = async () => {
-      const res = await fetch("http://localhost:3000/cart");
+      const res = await fetch(
+        "https://redux-97fb6-default-rtdb.firebaseio.com/cart.json"
+      );
       if (!res.ok) {
         throw new Error("Something went wrong!");
       }
@@ -27,17 +29,20 @@ export const fetchCartData = () => {
 export const sendCartData = (cart) => {
   return async (dispatch) => {
     const sendRequest = async () => {
-      const res = await fetch("http://localhost:3000/cart", {
-        method: "POST",
-        body: JSON.stringify({
-          items: cart.items,
-          totalQuantity: cart.totalQuantity,
-          totalAmount: cart.totalAmount,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "https://redux-97fb6-default-rtdb.firebaseio.com/cart.json",
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            items: cart.items,
+            totalQuantity: cart.totalQuantity,
+            totalAmount: cart.totalAmount,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!res.ok) {
         throw new Error("Something went wrong!");
       }

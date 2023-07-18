@@ -5,7 +5,7 @@ import { useRouteLoaderData } from 'react-router-dom'
 const MealEditPage = () => {
     const data = useRouteLoaderData("meal-details");
     return (
-        <MealForm method="patch" meal={data} />
+        <MealForm method="PATCH" meal={data} />
     )
 }
 
