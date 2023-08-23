@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
         <hr className="border-t border-[#ccc] my-8" />
         <div className="flex justify-between items-center pt-5 border-t border-[#ccc] text-sm">
-          <p>By <a className="underline text-sky-400" href="https://takeshy.works" target="_blank">Takeshy </a>© 2023 Yemek Sitesi. Tüm hakları saklıdır.</p>
+          <p>By <a className="underline text-white" href="https://takeshy.works" target="_blank">Takeshy </a>© 2023 Yemek Sitesi. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>
