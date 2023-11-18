@@ -14,12 +14,13 @@ import ReservationsPage from "./pages/ReservationsPage";
 import WaiterPage from "./pages/WaiterPage";
 import ContactsPage from "./pages/ContactsPage";
 import OrdersPage from "./pages/OrdersPage";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,

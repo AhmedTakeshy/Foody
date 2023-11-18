@@ -70,7 +70,7 @@ const Aside = ({ modeHandler, asideHandler }) => {
                     </div>
                 </div>
                 <div className="flex items-center py-1 pl-10 pr-2 space-x-3 text-white rounded-full group bg-gradient-to-r dark:from-cyan-500 dark:to-blue-500 from-indigo-500 via-purple-500 to-purple-500 ">
-                    <div className="mr-12 duration-300 ease-in-out transform">Yemek</div>
+                    <div className="mr-12 duration-300 ease-in-out transform">Foody</div>
                 </div>
             </div>
             <div

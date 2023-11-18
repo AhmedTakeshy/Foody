@@ -57,7 +57,7 @@ const CartForm = (props) => {
     <form className="my-4" onSubmit={formSubmitHandler}>
       <div className={`mb-2 ${!validity.name && "text-[#ca3e51]"}`}>
         <label className={`block font-bold mb-1`} htmlFor="name">
-          İsim
+          Name
         </label>
         <input
           name="name"
@@ -72,7 +72,7 @@ const CartForm = (props) => {
       </div>
       <div className={`mb-2 ${!validity.address && "text-[#ca3e51]"}`}>
         <label className="block mb-1 font-bold" htmlFor="address">
-          Adres
+          Address
         </label>
         <input
           name="address"
@@ -87,7 +87,7 @@ const CartForm = (props) => {
       </div>
       <div className={`mb-2 ${!validity.phone && "text-[#ca3e51]"}`}>
         <label className="block mb-1 font-bold" htmlFor="phone">
-          Telefon no
+          Phone no.
         </label>
         <input
           name="phone"
@@ -107,13 +107,13 @@ const CartForm = (props) => {
           onClick={props.onCancel}
           className="px-8 py-2 border-none rounded-full cursor-pointer text-secondary hover:bg-orange-100"
         >
-          İptal
+          Cancel
         </button>
         <button
           type="submit"
           className="px-8 py-2 text-white border rounded-full border-secondary bg-secondary hover:bg-primary"
         >
-          Onayla
+          Confirm
         </button>
       </div>
     </form>

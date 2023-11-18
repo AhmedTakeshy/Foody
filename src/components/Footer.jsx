@@ -6,49 +6,49 @@ const Footer = () => {
       <div className="max-w-6xl px-4 mx-auto">
         <div className="flex items-baseline justify-between">
           <ul>
-            <li className="mb-5 text-lg font-bold">Hakkımızda</li>
+            <li className="mb-5 text-lg font-bold">About us</li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Misyonumuz
+              Our mission
             </li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Vizyonumuz
+              Our vision
             </li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Hikayemiz
+              Our story
             </li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Ekibimiz
-            </li>
-          </ul>
-          <ul>
-            <li className="mb-5 text-lg font-bold">İletişim</li>
-            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Bize Ulaşın
-            </li>
-            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Sıkça Sorulan Sorular
-            </li>
-            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Destek
+              Our team
             </li>
           </ul>
           <ul>
-            <li className="mb-5 text-lg font-bold">Hizmetlerimiz</li>
+            <li className="mb-5 text-lg font-bold">Communication</li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Paket Servis
+              Contact us
             </li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Masaya Servis
+              Frequently Asked Questions
             </li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Özel Gün Yemekleri
-            </li>
-            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
-              Yemek Üzerine Her Şey
+              Support
             </li>
           </ul>
           <ul>
-            <li className="mb-5 text-lg font-bold">Sosyal Medya</li>
+            <li className="mb-5 text-lg font-bold">Our services</li>
+            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
+              Service packages
+            </li>
+            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
+              Table service
+            </li>
+            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
+              Special occasions and events
+            </li>
+            <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
+              All about food
+            </li>
+          </ul>
+          <ul>
+            <li className="mb-5 text-lg font-bold">Social media</li>
             <li className="transition duration-500 cursor-pointer hover:text-[#ea5e4b] text-[#333]">
               Facebook
             </li>
@@ -65,7 +65,17 @@ const Footer = () => {
         </div>
         <hr className="border-t border-[#ccc] my-8" />
         <div className="flex justify-between items-center pt-5 border-t border-[#ccc] text-sm">
-          <p>By <a className="underline text-white" href="https://takeshy.works" target="_blank">Takeshy </a>© 2023 Yemek Sitesi. Tüm hakları saklıdır.</p>
+          <p>
+            {/* By{" "}
+            <a
+              className="text-white underline"
+              href="https://takeshy.works"
+              target="_blank"
+            >
+              Takeshy{" "}
+            </a> */}
+            © 2023 Foody All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -37,15 +37,15 @@ const Nav = () => {
                 isActive ? "text-secondary" : "hover:text-secondary"
               }
             >
-              Anasayfa
+              Home
             </NavLink>
           </li>
-          <li className="hover:text-secondary" onClick={scrollTo}>Menüler</li>
+          <li className="hover:text-secondary" onClick={scrollTo}>Menus</li>
           <li
             className="hover:text-secondary"
             onClick={toggleReservationHandler}
           >
-            Rezervasyon
+            Reservation
           </li>
           <li>
             <NavLink
@@ -54,11 +54,11 @@ const Nav = () => {
                 isActive ? "text-secondary" : "hover:text-secondary"
               }
             >
-              Hakkımızda
+              About
             </NavLink>
           </li>
           <li className="hover:text-secondary" onClick={toggleContactHandler}>
-            İletişim
+            Contact
           </li>
         </ul>
         <button
@@ -66,7 +66,7 @@ const Nav = () => {
           className="font-bold bg-secondary flex items-center hover:bg-orange-600 border-2 border-secondary  text-[15px] rounded-xl text-white my-1 px-4 py-2 cursor-pointer"
         >
           <BsCart4 size={20} className="mr-2" />
-          Sepette {cartQuantity}
+          Cart {cartQuantity}
         </button>
       </nav>
     </header>

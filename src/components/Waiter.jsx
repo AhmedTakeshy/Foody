@@ -47,7 +47,7 @@ const Waiter = () => {
       toast.error("Lütfen bir masa numarası giriniz.");
     }
   };
-  const text = "Garson Çağır";
+  const text = "Call waiter";
   return (
     <div className="fixed z-0 flex items-center justify-center left-4 bottom-4">
       <button

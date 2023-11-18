@@ -51,7 +51,7 @@ const Reservation = () => {
     e.preventDefault();
 
     if (!isTimeValid(data.time, data.date)) {
-      toast.error("Lütfen geçerli bir saat giriniz.");
+      toast.error("Please choose another time.");
       return;
     }
 
@@ -64,7 +64,7 @@ const Reservation = () => {
           reservation.date === data.date && reservation.time === data.time
       );
       if (hasConflict) {
-        toast.error("Bu saatte rezervasyon alınamamaktadır.");
+        toast.error("We're closed at the time.");
         return;
       }
       const id = uuidv4();
@@ -75,7 +75,7 @@ const Reservation = () => {
         },
         body: JSON.stringify({ ...data, id }),
       });
-      toast.success("Rezervasyonunuz alınmıştır. Teşekkür ederiz.");
+      toast.success("We received you reservation, thank you.");
       if (!response.ok) {
         throw json({ message: "Something went wrong!" }, { status: 500 });
       }
@@ -93,7 +93,7 @@ const Reservation = () => {
       });
     } catch (error) {
       console.log(error);
-      toast.error("Bir hata oluştu. Lütfen tekrar deneyiniz.");
+      toast.error("Something went wrong, please try again.");
     }
   };
 
@@ -101,7 +101,7 @@ const Reservation = () => {
     <Card className="font-normal text-black" toggle="reservation">
       <div className="z-10 flex flex-col">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold">Rezervasyon</h2>
+          <h2 className="text-xl font-semibold">Reservation</h2>
           <ImCross
             className="text-2xl text-red-600 cursor-pointer hover:text-black"
             size={15}
@@ -117,7 +117,7 @@ const Reservation = () => {
             name="name"
             type="text"
             className="p-2 rounded-md border border-[#ccc]"
-            placeholder="Adınız:"
+            placeholder="Name:"
             onChange={handleChange}
             value={data.name}
           />
@@ -126,7 +126,7 @@ const Reservation = () => {
             type="number"
             className="p-2 rounded-md border border-[#ccc]"
             pattern="[0-9]"
-            placeholder="Masa numaranız:"
+            placeholder="Table number:"
             onChange={handleChange}
             value={data.tableNumber}
           />
@@ -136,7 +136,7 @@ const Reservation = () => {
             type="number"
             className="p-2 rounded-md border border-[#ccc]"
             pattern="[0-9]"
-            placeholder="Kişi sayısı:"
+            placeholder="Number of people:"
             onChange={handleChange}
             value={data.numberOfPeople}
           />
@@ -165,12 +165,12 @@ const Reservation = () => {
             name="note"
             type="text"
             className="p-2 w-72 rounded-md border border-[#ccc]"
-            placeholder="Notunuz:"
+            placeholder="Your note..."
             onChange={handleChange}
             value={data.note}
           />
           <button className="p-2 transition duration-300 bg-transparent border rounded-md text-secondary border-secondary hover:bg-secondary hover:border-secondary hover:text-white">
-            Rezervasyon yap
+            Make a reservation
           </button>
         </form>
       </div>

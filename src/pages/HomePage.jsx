@@ -16,15 +16,15 @@ const HomePage = () => {
   const categoryData = (filter) => {
     return (
       <>
-        <Category data={fetchedDataArr?.filter(data => data.type === "menu")} title="Günün Menüsü" />
+        <Category data={fetchedDataArr?.filter(data => data.type === "menu")} title="Today's menu" />
         {filter === "all" || filter === "main" ? (
-          <Category data={fetchedDataArr?.filter(data => data.type === "main")} title="Ana Yemekler" />
+          <Category data={fetchedDataArr?.filter(data => data.type === "main")} title="Main food" />
         ) : null}
         {filter === "all" || filter === "desserts" ? (
-          <Category data={fetchedDataArr?.filter(data => data.type === "desserts")} title="Tatlılar" />
+          <Category data={fetchedDataArr?.filter(data => data.type === "desserts")} title="Desserts" />
         ) : null}
         {filter === "all" || filter === "drinks" ? (
-          <Category data={fetchedDataArr?.filter(data => data.type === "drinks")} title="İçecekler" />
+          <Category data={fetchedDataArr?.filter(data => data.type === "drinks")} title="Drinks" />
         ) : null}
       </>
     );

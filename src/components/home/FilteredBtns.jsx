@@ -11,35 +11,28 @@ const FilteredBtns = (props) => {
         onClick={filterHandler}
         className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
-        Menü
+        Menu
       </button>
-      {/* <button
-        data-category="menu"
-        onClick={filterHandler}
-        className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
-      >
-        Günün Menüsü
-      </button> */}
       <button
         data-category="main"
         onClick={filterHandler}
         className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
-        Ana Yemekler
+        Main food
       </button>
       <button
         data-category="desserts"
         onClick={filterHandler}
         className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
-        Tatlılar
+        Desserts
       </button>
       <button
         data-category="drinks"
         onClick={filterHandler}
         className="px-8 py-2 font-bold border-none bg-secondary rounded-2xl hover:bg-primary"
       >
-        İçecekler
+        Drinks
       </button>
     </div>
   );

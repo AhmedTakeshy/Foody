@@ -59,10 +59,10 @@ const ContactForm = () => {
         subject: "",
         message: "",
       });
-      toast.success("Mesajınız gönderilmiştir. Teşekkür ederiz.");
+      toast.success("Your message has been sent, thank you.");
     } catch (error) {
       console.log(error);
-      toast.error("Bir hata oluştu. Lütfen tekrar deneyiniz.");
+      toast.error("Something wrong happened, please try again.");
     }
   };
 
@@ -71,14 +71,14 @@ const ContactForm = () => {
       <div className="flex flex-col">
         <div className="flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <span className="">İletişim formu</span>
+            <span className="">Contact form</span>
             <ImCross
               className="text-2xl text-red-600 cursor-pointer hover:text-black"
               size={15}
               onClick={toggleContactHandler}
             />
           </div>
-          <h2 className="my-2 text-3xl font-bold">Bize yazin</h2>
+          <h2 className="my-2 text-3xl font-bold">Write us</h2>
         </div>
         <form
           className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2"
@@ -89,7 +89,7 @@ const ContactForm = () => {
             type="text"
             id="name"
             name="name"
-            placeholder="Ad soyad"
+            placeholder="Name"
             className="w-full p-2 border border-gray-400 rounded-md"
             value={formData.name}
             onChange={handleChange}
@@ -99,7 +99,7 @@ const ContactForm = () => {
             type="email"
             id="email"
             name="email"
-            placeholder="E-posta"
+            placeholder="Email"
             className="w-full p-2 border border-gray-400 rounded-md"
             value={formData.email}
             onChange={handleChange}
@@ -109,7 +109,7 @@ const ContactForm = () => {
             type="text"
             id="subject"
             name="subject"
-            placeholder="Konu"
+            placeholder="Subject"
             className="w-full col-span-2 p-2 border border-gray-400 rounded-md"
             value={formData.subject}
             onChange={handleChange}
@@ -118,7 +118,7 @@ const ContactForm = () => {
             name="message"
             cols="30"
             rows="10"
-            placeholder="Mesajınız"
+            placeholder="Message..."
             className="w-full col-span-2 p-2 border border-gray-400 rounded-md"
             value={formData.message}
             onChange={handleChange}
@@ -127,7 +127,7 @@ const ContactForm = () => {
             type="submit"
             className="px-6 py-2 font-semibold text-black transition duration-500 rounded-md bg-secondary hover:bg-black hover:text-secondary w-fit"
           >
-            Onayla
+            Send
           </button>
         </form>
       </div>

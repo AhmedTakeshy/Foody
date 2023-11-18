@@ -86,7 +86,7 @@ const Cart = () => {
         <CartSuggestions />
       )}
       <div className="flex items-center justify-between my-4 text-2xl font-bold">
-        <span>Toplam</span>
+        <span>Total</span>
         <span>₺{cartAmountFixed}</span>
       </div>
       {isSelected && (
@@ -100,7 +100,7 @@ const Cart = () => {
               onChange={changeOptionHandler}
               checked={selectedOption === "option1"}
             />
-            <label htmlFor="table">Restoran</label>
+            <label htmlFor="table">Restaurant</label>
           </div>
           <div className="flex items-center justify-between gap-2 mb-2 font-semibold">
             <input
@@ -111,7 +111,7 @@ const Cart = () => {
               onChange={changeOptionHandler}
               checked={selectedOption === "option2"}
             />
-            <label htmlFor="delivery">Online Sipariş</label>
+            <label htmlFor="delivery">Online order</label>
           </div>
           {selectedOption === "option1" ? (
             <TableForm
@@ -130,14 +130,14 @@ const Cart = () => {
               className="px-8 py-2 bg-transparent border rounded-full text-primary border-primary hover:border-secondary hover:bg-secondary hover:text-white"
               onClick={toggleCartHandler}
             >
-              Kapat
+              Close
             </button>
             {hasItems && (
               <button
                 className="px-8 py-2 ml-4 text-white border rounded-full bg-primary border-primary hover:border-secondary hover:bg-secondary"
                 onClick={selectHandler}
               >
-                Sipariş Et
+                Order
               </button>
             )}
           </div>
@@ -149,14 +149,14 @@ const Cart = () => {
   const sendingMessage = <p>Sending order data...</p>;
   const submittedMessage = (
     <>
-      <p className="text-lg font-semi-bold">Başarıyla siparişinizi verdiniz!</p>
+      <p className="text-lg font-semi-bold">We received your order successfully!</p>
       <OrderTime />
       <div className="text-right">
         <button
           className="px-8 py-2 bg-transparent border rounded-full text-primary border-primary hover:border-secondary hover:bg-secondary hover:text-white"
           onClick={toggleCartHandler}
         >
-          Kapat
+          Close
         </button>
       </div>
     </>
