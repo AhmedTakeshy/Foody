@@ -30,21 +30,21 @@ const Waiter = () => {
       else {
         const alreadyCalled = waiter.some((item) => item === res);
         if (alreadyCalled) {
-          toast.info("Garson zaten yolda.");
+          toast.info("Waiter is on the way.");
         } else {
           setWaiter([...waiter, res]);
           if (res === 0) {
             toast.success(
-              "Garson kapıya kadar bir kaç saniye içerisinde gelecektir."
+              "Waiter is on the way. Please wait at the entrance"
             );
           } else {
-            toast.success(`Masa ${res} için garson çağırıldı.`);
+            toast.success(`Table ${res} waiter is on the way.`);
           }
         }
       }
 
     } else if (isNaN(res)) {
-      toast.error("Lütfen bir masa numarası giriniz.");
+      toast.error("Please enter a table number.");
     }
   };
   const text = "Call waiter";
