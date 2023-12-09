@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 const Waiter = () => {
   const [waiter, setWaiter] = useState([]);
   const callWaiter = async () => {
-    const res = parseInt(prompt("Masa numarası giriniz:"));
+    const res = parseInt(prompt("Enter table number:"));
     if (!isNaN(res)) {
       // send data to server
       const id = uuidv4();
