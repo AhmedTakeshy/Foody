@@ -9,7 +9,8 @@ const Meals = ({ meals }) => {
                     meal={meal}
                     key={meal.id}
                 />
-            ))}
+            )).reverse()
+            }
         </div>
     )
 }
