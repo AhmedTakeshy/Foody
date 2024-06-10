@@ -1,4 +1,4 @@
-# Wanderly
+# Foody
 
 Foody is a web app designed to showcase my portfolio. The app is a restaurant app that allows users to order food in the restaurant or takeaway as well. 
 It has managment dashboard so that the managers of the app can track the orders, reservations, waiters call, modify the meals, and more.
@@ -9,10 +9,10 @@ It has managment dashboard so that the managers of the app can track the orders,
     - [Getting Started](#getting-started)
     - [Video](#video)
     - [Features](#features)
-        - [Hotel Search](#hotel-search)
-        - [Recent Searches](#recent-searches)
-        - [Favorite Destinations](#favorite-destinations)
-        - [Flight Search](#flight-search)
+        - [Food Order](#food-order)
+        - [Make Reservation](#make-reservation)
+        - [Contact](#contact)
+        - [Waiter Call](#waiter-call)
         - [Dashboard](#dashboard)
     - [Technologies](#technologies)
     - [Contributing](#contributing)
@@ -50,7 +50,7 @@ Users can make a reservation with the number of the people and the data and time
 
 Users can contact the restaurant.
 
-#### waiter call
+#### Waiter call
 
 Users can call the waiter to the specific table with its number or to the door with "0" number
 
